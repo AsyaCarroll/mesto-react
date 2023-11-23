@@ -27,16 +27,13 @@ class Api {
                 authorization: `${this.token}`,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                name: name,
-                link: link,
-            })
+            body: JSON.stringify({name, link})
         })
             .then(res => this._getResponseData(res))
     }
 
-    deleteCard(card_id) {
-        return fetch(`${this.url}/cards/${card_id}`, {
+    deleteCard(cardId) {
+        return fetch(`${this.url}/cards/${cardId}`, {
             method: 'DELETE',
             headers: {
                 authorization: `${this.token}`
@@ -83,28 +80,8 @@ class Api {
             .then(res => this._getResponseData(res))
     }
 
-    // leaveLike(card_id) {
-    //     return fetch(`${this.url}/cards/${card_id}/likes`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             authorization: `${this.token}`
-    //         }
-    //     })
-    //         .then(res => this._getResponseData(res))
-    // }
-
-    // removeLike(card_id) {
-    //     return fetch(`${this.url}/cards/${card_id}/likes`, {
-    //         method: 'DELETE',
-    //         headers: {
-    //             authorization: `${this.token}`
-    //         }
-    //     })
-    //         .then(res => this._getResponseData(res))
-    // }
-
-    changeLikeCardStatus(card_id, like) {
-        return fetch(`${this.url}/cards/${card_id}/likes`, {
+    changeLikeCardStatus(cardId, like) {
+        return fetch(`${this.url}/cards/${cardId}/likes`, {
             method: like ? 'PUT' : 'DELETE',
             headers: {
                 authorization: `${this.token}`
