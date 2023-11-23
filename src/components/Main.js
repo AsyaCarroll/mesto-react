@@ -36,9 +36,6 @@ function Main(props) {
                         className="profile__add-button"
                         onClick={props.onAddPlace} />
                 </section>
-                <section className="elements" aria-label="фотографии">
-                    <template id="element" />
-                </section>
             </main>
             <section className="elements" aria-label="фотографии">
                 {props.cards.map((card) => (
@@ -47,7 +44,7 @@ function Main(props) {
                         card={card}
                         onCardClick={props.onCardClick}
                         onCardLike={props.onCardLike}
-                        oncardDelete={props.onCardDelete}
+                        onCardDelete={props.onCardDelete}
                     />
                 ))}
             </section>
